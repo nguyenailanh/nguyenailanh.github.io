@@ -106,7 +106,7 @@ function Main() {
 
     function onCompleteHandler(evt){
       //remove loading
-      document.getAssetsById('loader').style.display='none';
+      document.getElementById('loader').style.display='none';
 
 
       bg = new createjs.Bitmap(getAssetsById('bg'));
