@@ -108,7 +108,8 @@ function Main() {
     }
 
     function onFileLoadHandler(evt){
-      console.log(evt.id + ' : ' + evt.result);
+      var item = evt.item;
+      console.log(item.id + ' : ' + evt.result);
 
     }
 
