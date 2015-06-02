@@ -76,7 +76,7 @@ function Main() {
         {src:"wall.mp3|wall.ogg", id:"wall"}
     ];
 
-    preloader = new createjs.LoadQueue();
+    preloader = new createjs.LoadQueue(true, basePath);
   //  preloader.installPlugin(SoundJS);
     preloader.on('progress', onProgressHandler, this);
     preloader.on('complete', onCompleteHandler, this);
