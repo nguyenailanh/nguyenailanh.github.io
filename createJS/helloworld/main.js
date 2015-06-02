@@ -35,7 +35,7 @@ var preloader;
 var manifest;
 var totalLoaded = 0;
 
-var TitleView = new Container();
+var TitleView = new createjs.Container();
 
 var basePath = 'assets/';
 
@@ -46,7 +46,7 @@ function Main() {
     canvas = document.getElementById('GameStage');
 
     //Stage
-    stage = new Stage(canvas)
+    stage = new createjs.Stage(canvas)
     stage.mouseEventEnable = true;
 
 
