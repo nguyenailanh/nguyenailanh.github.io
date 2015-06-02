@@ -108,7 +108,7 @@ function Main() {
     }
 
     function onFileLoadHandler(evt){
-      console.log(evt.result);
+      console.log(evt.id + ' : ' + evt.result);
 
     }
 
