@@ -78,7 +78,7 @@ function Main() {
     preloader = new createjs.LoadQueue();
   //  preloader.installPlugin(SoundJS);
     preloader.on('fileprogress', onProgressHandler, this);
-    preloader.on('complete', onProgressHandler, this);
+    preloader.on('complete', onCompleteHandler, this);
     preloader.loadFile('assets/bg.png');
 
     createjs.Ticker.addEventListener("tick", handleTick);
@@ -95,6 +95,7 @@ function Main() {
     }
 
     function onCompleteHandler(evt){
+        console('complete');
         stage.addChild(evt.result);
     }
 
