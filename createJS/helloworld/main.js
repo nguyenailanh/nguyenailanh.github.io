@@ -51,6 +51,13 @@ function Main() {
     stage = new createjs.Stage(canvas)
     stage.mouseEventEnable = true;
 
+    var shap = new createjs.Shape();
+    shap.graphics.beginFill('#cccccc');
+    shap.graphics.drawRect(0,0, 480,320)
+    shap.graphics.endFill();
+
+    stage.addChildAt(shap,0);
+
     /*
     if(!createjs.FlashAudioPlugin.isSupported()){
       return;
@@ -98,8 +105,10 @@ function Main() {
     }
 
     function onCompleteHandler(evt){
+      //remove loading
+      document.getAssetsById('loader').style.display='none';
 
-      console.log('complete');
+
       bg = new createjs.Bitmap(getAssetsById('bg'));
       stage.addChild(bg);
       stage.update();
