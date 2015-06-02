@@ -49,11 +49,14 @@ function Main() {
     stage = new createjs.Stage(canvas)
     stage.mouseEventEnable = true;
 
-    if(!createjs.FlashAudioPlugin.isSupported){
+    /*
+    if(!createjs.FlashAudioPlugin.isSupported()){
       return;
     }
 
-    createjs.FlashAudioPlugin.swfPath = basePath;
+   createjs.FlashAudioPlugin.swfPath = basePath;
+   */
+
 
     manifest = [
         {src:"bg.png", id:"bg"},
@@ -72,17 +75,17 @@ function Main() {
         {src:"wall.mp3|wall.ogg", id:"wall"}
     ];
 
-    preloader = new PreloadJS();
-    preloader.installPlugin(SoundJS);
+    preloader = new createjs.LoadQueue();
+  //  preloader.installPlugin(SoundJS);
     preloader.onProgrees = onProgressHandler;
     preloader.onComplete = onCompleteHandler;
-    preloader.onFileLoad = onFileLoadHanlder;
-    preloader.loadManifest(manifest);
+    preloader.onFileLoad = onFileLoadHandler;
+    preloader.loadFile('assets/bg.png');
 
     Ticker.setFPS(30);
     Ticker.addListener(stage);
 
-    function onProgressHanlder(evt){
+    function onProgressHandler(evt){
       console.log(evt.loaded + ' : ' + evt.total);
     }
 
