@@ -97,8 +97,11 @@ function Main() {
     }
 
     function onCompleteHandler(evt){
-        console.log('complete: ' + evt.result);
-        stage.addChild(evt.result);
+
+        var bmp = new createjs.Bitmap(evt.result);
+        console.log('complete: ' + bmp);
+
+        stage.addChild(bmp);
         stage.update();
     }
 
