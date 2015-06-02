@@ -81,6 +81,7 @@ function Main() {
   //  preloader.installPlugin(SoundJS);
     preloader.on('progress', onProgressHandler, this);
     preloader.on('complete', onCompleteHandler, this);
+    preloader.on('fileload', onFileLoadHandler, this);
     preloader.loadManifest(manifest);
 
     createjs.Ticker.addEventListener("tick", handleTick);
@@ -98,7 +99,7 @@ function Main() {
 
     function onCompleteHandler(evt){
 
-      console.log(evt.loadItemsById);
+    //  console.log(evt.loadItemsById);
      /* assetsFactory[evt.result]
       bg = new createjs.Bitmap(preloader.getResult('bg'));
       stage.addChild(bg);
@@ -107,6 +108,7 @@ function Main() {
     }
 
     function onFileLoadHandler(evt){
+      console.log(evt.result);
 
     }
 
