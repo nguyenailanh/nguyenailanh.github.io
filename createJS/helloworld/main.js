@@ -57,6 +57,7 @@ function Main() {
     shap.graphics.endFill();
 
     stage.addChildAt(shap,0);
+    stage.update();
 
     /*
     if(!createjs.FlashAudioPlugin.isSupported()){
