@@ -1,3 +1,5 @@
+'use strick';
+
 var canvas; //Will be linked to the canvas in our index.html page
 var stage; //Is the equivalent of stage in AS3; we'll add "children" to it
 
@@ -95,7 +97,7 @@ function Main() {
     }
 
     function onCompleteHandler(evt){
-        console('complete');
+        console.log('complete');
         stage.addChild(evt.result);
     }
 
