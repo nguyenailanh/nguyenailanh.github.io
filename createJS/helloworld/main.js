@@ -98,7 +98,8 @@ function Main() {
 
     function onCompleteHandler(evt){
         console.log('complete: ' + evt.result);
-        //stage.addChild(evt.result);
+        stage.addChild(evt.result);
+        stage.update();
     }
 
     function onFileLoadHandler(evt){
