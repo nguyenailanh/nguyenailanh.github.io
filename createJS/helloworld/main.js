@@ -49,11 +49,11 @@ function Main() {
     stage = new createjs.Stage(canvas)
     stage.mouseEventEnable = true;
 
-
-    SoundJS.FlashPlugin.BASE_PATH = basePath;
-    if(!SoundJS.checkPlugin(true)){
+    if(!createjs.FlashAudioPlugin.isSupported){
       return;
     }
+
+    createjs.FlashAudioPlugin.swfPath = basePath;
 
     manifest = [
         {src:"bg.png", id:"bg"},
