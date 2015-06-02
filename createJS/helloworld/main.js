@@ -41,7 +41,6 @@ var TitleView = new createjs.Container();
 
 var basePath = 'assets/';
 
-
 function Main() {
 
     //Canvas
@@ -79,9 +78,9 @@ function Main() {
 
     preloader = new createjs.LoadQueue();
   //  preloader.installPlugin(SoundJS);
-    preloader.on('fileprogress', onProgressHandler, this);
-    preloader.on('fileload', onCompleteHandler, this);
-    preloader.loadFile('assets/bg.png');
+    preloader.on('progress', onProgressHandler, this);
+    preloader.on('complete', onCompleteHandler, this);
+    preloader.loadManifest(manifest);
 
     createjs.Ticker.addEventListener("tick", handleTick);
 
@@ -97,12 +96,10 @@ function Main() {
     }
 
     function onCompleteHandler(evt){
+      bg = new createjs.Bitmap(preloader.getResult('bg'));
+      stage.addChild(bg);
+      bg.update();
 
-        var bmp = new createjs.Bitmap(evt.result);
-        console.log('complete: ' + bmp);
-
-        stage.addChild(bmp);
-        stage.update();
     }
 
     function onFileLoadHandler(evt){
