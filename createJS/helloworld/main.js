@@ -82,8 +82,14 @@ function Main() {
     preloader.onFileLoad = onFileLoadHandler;
     preloader.loadFile('assets/bg.png');
 
-    Ticker.setFPS(30);
-    Ticker.addListener(stage);
+    createjs.Ticker.addEventListener("tick", handleTick);
+
+    function handleTick(event) {
+     // Actions carried out each tick (aka frame)
+     if (!event.paused) {
+         // Actions carried out when the Ticker is not paused.
+     }
+ }
 
     function onProgressHandler(evt){
       console.log(evt.loaded + ' : ' + evt.total);
