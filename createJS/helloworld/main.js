@@ -98,7 +98,7 @@ function Main() {
     function onCompleteHandler(evt){
       bg = new createjs.Bitmap(preloader.getResult('bg'));
       stage.addChild(bg);
-      bg.update();
+      stage.update();
 
     }
 
