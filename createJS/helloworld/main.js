@@ -40,6 +40,7 @@ var totalLoaded = 0;
 var TitleView = new createjs.Container();
 
 var basePath = 'assets/';
+var assetsFactory ={};
 
 function Main() {
 
@@ -70,10 +71,10 @@ function Main() {
         {src:"ball.png", id:"ball"},
         {src:"win.png", id:"win"},
         {src:"lose.png", id:"lose"},
-        {src:"playerScore.mp3|playerScore.ogg", id:"playerScore"},
-        {src:"enemyScore.mp3|enemyScore.ogg", id:"enemyScore"},
-        {src:"hit.mp3|hit.ogg", id:"hit"},
-        {src:"wall.mp3|wall.ogg", id:"wall"}
+        {src:"playerScore.mp3", id:"playerScore"},
+        {src:"enemyScore.mp3", id:"enemyScore"},
+        {src:"hit.mp3", id:"hit"},
+        {src:"wall.mp3", id:"wall"}
     ];
 
     preloader = new createjs.LoadQueue(true, basePath);
@@ -92,13 +93,16 @@ function Main() {
  }
 
     function onProgressHandler(evt){
-      console.log(evt.loaded + ' : ' + evt.total);
+      //console.log(evt.loaded + ' : ' + evt.total);
     }
 
     function onCompleteHandler(evt){
+
+      console.log(evt.result);
+     /* assetsFactory[evt.result]
       bg = new createjs.Bitmap(preloader.getResult('bg'));
       stage.addChild(bg);
-      stage.update();
+      stage.update();*/
 
     }
 
