@@ -99,19 +99,18 @@ function Main() {
 
     function onCompleteHandler(evt){
 
-    //  console.log(evt.loadItemsById);
-     /* assetsFactory[evt.result]
-      bg = new createjs.Bitmap(preloader.getResult('bg'));
+      console.log('complete');
+      bg = new createjs.Bitmap(getAssetsById('bg'));
       stage.addChild(bg);
-      stage.update();*/
-
+      stage.update();
     }
 
     function onFileLoadHandler(evt){
-      var item = evt.item;
-      console.log(item.id + ' : ' + evt.result);
-
+      assetsFactory[evt.item.id] =  evt.result;
     }
 
+    function getAssetsById(id){
+      return assetsFactory[id];
+    }
 
 }
