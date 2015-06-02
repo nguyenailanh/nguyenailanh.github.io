@@ -98,7 +98,7 @@ function Main() {
 
     function onCompleteHandler(evt){
 
-      console.log(evt.result);
+      console.log(evt);
      /* assetsFactory[evt.result]
       bg = new createjs.Bitmap(preloader.getResult('bg'));
       stage.addChild(bg);
