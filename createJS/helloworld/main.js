@@ -1,33 +1,23 @@
 'use strick';
 
-var canvas; //Will be linked to the canvas in our index.html page
-var stage; //Is the equivalent of stage in AS3; we'll add "children" to it
+var canvas;
+var stage;
 
-// Graphics
-//[Background]
-
-var bg; //The background graphic
-
-//[Title View]
+var bg;
 
 
-var main; //The Main Background
-var startB; //The Start button in the main menu
-var creditsB; //The credits button in the main menu
+var main;
+var startB;
+var creditsB;
 
-//[Credits]
-
-
-var credits; //The Credits screen
-
-//[Game View]
+var credits;
 
 
-var player; //The player paddle graphic
-var ball; //The ball graphic
-var cpu; //The CPU paddle
-var win; //The winning popup
-var lose; //The losing popup
+var player;
+var ball;
+var cpu;
+var win;
+var lose;
 
 var xSpeed = 5;
 var ySpeed = 5;
@@ -59,15 +49,6 @@ function Main() {
     stage.addChildAt(shap,0);
     stage.update();
 
-    /*
-    if(!createjs.FlashAudioPlugin.isSupported()){
-      return;
-    }
-
-   createjs.FlashAudioPlugin.swfPath = basePath;
-   */
-
-
     manifest = [
         {src:"bg.png", id:"bg"},
         {src:"main.png", id:"main"},
@@ -86,7 +67,6 @@ function Main() {
     ];
 
     preloader = new createjs.LoadQueue(true, basePath);
-  //  preloader.installPlugin(SoundJS);
     preloader.on('progress', onProgressHandler, this);
     preloader.on('complete', onCompleteHandler, this);
     preloader.on('fileload', onFileLoadHandler, this);
@@ -95,11 +75,8 @@ function Main() {
     createjs.Ticker.addEventListener("tick", handleTick);
 
     function handleTick(event) {
-     // Actions carried out each tick (aka frame)
-     if (!event.paused) {
-         // Actions carried out when the Ticker is not paused.
-     }
- }
+      console.log('tick');
+    }
 
     function onProgressHandler(evt){
       //console.log(evt.loaded + ' : ' + evt.total);
