@@ -73,11 +73,10 @@ function Main() {
     preloader.loadManifest(manifest);
 
     createjs.Ticker.addEventListener("tick", handleTick);
-    createjs.Ticker.setInterval(1000);
     createjs.Ticker.framerate(30);
 
     function handleTickGame(evt){
-
+      console.log('tick game');
     }
 
     function handleTick(event) {
@@ -92,8 +91,8 @@ function Main() {
       //remove loading
       document.getElementById('loader').style.display='none';
 
-
       bg = new createjs.Bitmap(getAssetsById('bg'));
+      bg.addEventListener('tick', handleTickGame);
       stage.addChild(bg);
       stage.update();
     }
