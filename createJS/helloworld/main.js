@@ -73,6 +73,12 @@ function Main() {
     preloader.loadManifest(manifest);
 
     createjs.Ticker.addEventListener("tick", handleTick);
+    createjs.Ticker.setInterval(30);
+    createjs.Ticker.setFPS(30);
+
+    function handleTickGame(evt){
+
+    }
 
     function handleTick(event) {
       console.log('tick');
