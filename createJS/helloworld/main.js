@@ -73,7 +73,8 @@ function Main() {
     preloader.loadManifest(manifest);
 
     createjs.Ticker.addEventListener("tick", handleTick);
-    createjs.Ticker.framerate(30);
+    createjs.Ticker.setInterval(1000);
+    createjs.Ticker.setFPS(30);
 
     function handleTickGame(evt){
       console.log('tick game');
