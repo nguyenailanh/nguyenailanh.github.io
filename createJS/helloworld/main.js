@@ -103,7 +103,7 @@ function Main() {
       stage.addChild(ball);
 
       paddle = new createjs.Bitmap(getAssetsById('paddle'));
-      stage.addChild(padde);
+      stage.addChild(paddle);
       paddle.x = 240- 37;
       paddle.y = 320 - 37;
 
