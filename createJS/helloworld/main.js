@@ -154,9 +154,9 @@ function Main() {
 
        if(ball.y >= paddle.y){
         if(paddle.hitTest(ball.x + 15, ball.y + 15)){
-          xSpeed =-xSpeed;
+          ySpeed =-ySpeed;
         }else{
-          xSpeed =-xSpeed;
+          ySpeed =-ySpeed;
         }
        }
 
