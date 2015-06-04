@@ -139,9 +139,6 @@ function Main() {
        createjs.Ticker.addEventListener("tick", update);
        createjs.Ticker.setInterval(30);
 
-       if(ball){
-          ball.addEventListener('mousedown', onDown)
-       }
     }
 
     function update(){
