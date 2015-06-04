@@ -152,7 +152,7 @@ function Main() {
          xSpeed = -xSpeed;
        }
 
-       if(ball.y >= 300){
+       if(ball.y >= 300 || ball.y <= 20){
           ySpeed = -ySpeed;
        }
         /*
