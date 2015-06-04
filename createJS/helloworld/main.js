@@ -31,6 +31,7 @@ var TitleView = new createjs.Container();
 
 var basePath = 'assets/';
 var assetsFactory ={};
+var first = true;
 
 function Main() {
 
@@ -100,6 +101,7 @@ function Main() {
       ball = new createjs.Bitmap(getAssetsById('ball'));
       ball.x = 240-15;
       ball.y = -15;
+
       stage.addChild(ball);
 
       paddle = new createjs.Bitmap(getAssetsById('paddle'));
@@ -152,8 +154,12 @@ function Main() {
          xSpeed = -xSpeed;
        }
 
-       if(ball.y >= 300 || ball.y <= 20){
+       if(ball.y >= 300 || (ball.y <= 20 && !first)){
           ySpeed = -ySpeed;
+       }
+
+       else if(ball.y > 30){
+        first = false;
        }
         /*
        if(ball.y >= paddle.y){
