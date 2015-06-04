@@ -56,7 +56,7 @@ function Main() {
         {src:"creditsB.png", id:"creditsB"},
         {src:"credits.png", id:"credits"},
         {src:"paddle.png", id:"cpu"},
-        {src:"paddle.png", id:"player"},
+        {src:"paddle.png", id:"paddle"},
         {src:"ball.png", id:"ball"},
         {src:"win.png", id:"win"},
         {src:"lose.png", id:"lose"},
