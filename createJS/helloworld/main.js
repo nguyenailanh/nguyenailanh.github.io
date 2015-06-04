@@ -170,16 +170,14 @@ function Main() {
        }
 
 
-       else if(ball.y >= paddle.y - 15){
+       if(ball.y >= paddle.y - 15){
          if(ball.x >= paddle.x && ball.x <= paddle.x + 72 - 15){
            ySpeed =-ySpeed;
-         }/*else{
-          endGame();
-         }*/
-       }
+         }
 
-       else if(ball.y >= 322){
-        endGame();
+         if(ball.y >= 322){
+          endGame();
+         }
        }
 
        ball.y +=ySpeed;
