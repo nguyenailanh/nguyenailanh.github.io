@@ -118,7 +118,7 @@ function Main() {
     function onDownHandler(evt){
 
       stage.addEventListener('stagemouseup', onUpHandler);
-      stage.addEventListener('stagemouseout', onUpHandler);
+     // stage.addEventListener('stagemouseout', onUpHandler);
       stage.addEventListener('stagemousemove', onMoveHandler);
     }
 
