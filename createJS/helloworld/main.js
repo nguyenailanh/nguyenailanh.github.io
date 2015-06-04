@@ -104,8 +104,8 @@ function Main() {
 
       paddle = new createjs.Bitmap(getAssetsById('paddle'));
       stage.addChild(paddle);
-      paddle.x = 240- 37;
-      paddle.y = 320 - 37;
+      paddle.x = 240- 23;
+      paddle.y = 320 - 23;
 
       paddle.addEventListener('mousedown', onDownHandler);
 
@@ -115,7 +115,8 @@ function Main() {
 
     function onDownHandler(evt){
       console.log(0);
-      stage.addEventListener('mouseup', onUpHandler);
+      stage.addEventListener('stagemouseup', onUpHandler);
+      stage.addEventListener('stagemouseout', onUpHandler);
       stage.addEventListener('stagemousemove', onMoveHandler);
     }
 
@@ -125,7 +126,7 @@ function Main() {
     }
 
     function onUpHandler(evt){
-      stage.removeEventListener('mousemove', onMoveHandler);
+      stage.removeEventListener('stagemousemove', onMoveHandler);
     }
 
     function onFileLoadHandler(evt){
@@ -149,6 +150,14 @@ function Main() {
 
        if(ball.x <= 15 || ball.x >= 465){
          xSpeed =-xSpeed;
+       }
+
+       if(ball.y >= paddle.y){
+        if(paddle.hitTest(ball.x + 15, ball.y + 15)){
+          xSpeed =-xSpeed;
+        }else{
+          xSpeed =-xSpeed;
+        }
        }
 
        ball.y +=ySpeed;
