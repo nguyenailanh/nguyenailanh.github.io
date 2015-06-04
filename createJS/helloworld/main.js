@@ -100,7 +100,7 @@ function Main() {
       ball = new createjs.Bitmap(getAssetsById('ball'));
       ball.x = 240-15;
       ball.y = -15;
-
+      stage.addChild(ball);
 
       startGame();
 
