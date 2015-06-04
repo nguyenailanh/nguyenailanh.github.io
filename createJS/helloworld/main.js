@@ -161,14 +161,12 @@ function Main() {
        else if(ball.y > 30){
         first = false;
        }
-        /*
-       if(ball.y >= paddle.y){
-        if(paddle.hitTest(ball.x + 15, ball.y + 15)){
-          ySpeed = -ySpeed;
-        }else{
-          ySpeed = -ySpeed;
-        }
-       }*/
+
+       if(ball.y >= paddle.y - 15){
+         if(ball.x >= paddle.x && ball.x <= paddle.x + 72 - 15){
+           ySpeed =-ySpeed;
+         }
+       }
 
        ball.y +=ySpeed;
     }
