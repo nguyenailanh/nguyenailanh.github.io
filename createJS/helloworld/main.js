@@ -116,14 +116,13 @@ function Main() {
     }
 
     function onDownHandler(evt){
-      console.log(0);
+
       stage.addEventListener('stagemouseup', onUpHandler);
       stage.addEventListener('stagemouseout', onUpHandler);
       stage.addEventListener('stagemousemove', onMoveHandler);
     }
 
     function onMoveHandler(evt){
-      console.log('x: ' + evt.stageX);
       paddle.x = evt.stageX;
     }
 
@@ -142,10 +141,17 @@ function Main() {
     function startGame(){
        createjs.Ticker.addEventListener("tick", update);
        createjs.Ticker.setInterval(30);
+    }
 
+    function endGame(){
+        //stop timer
+        createjs.Ticker.removeEventListener("tick", update);
+
+        //reset
     }
 
     function update(){
+      console.log(0);
        stage.update();
 
        ball.x +=xSpeed;
@@ -154,7 +160,7 @@ function Main() {
          xSpeed = -xSpeed;
        }
 
-       if(ball.y >= 300 || (ball.y <= 2 && !first)){
+       if(ball.y <= 2 && !first){
           ySpeed = -ySpeed;
        }
 
@@ -165,9 +171,13 @@ function Main() {
        if(ball.y >= paddle.y - 15){
          if(ball.x >= paddle.x && ball.x <= paddle.x + 72 - 15){
            ySpeed =-ySpeed;
+         }else{
+          endGame();
          }
        }
 
        ball.y +=ySpeed;
     }
+
+
 }
