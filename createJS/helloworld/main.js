@@ -116,13 +116,18 @@ function Main() {
 
     function startGame(){
        createjs.Ticker.addEventListener("tick", update);
-       createjs.Ticker.setInterval(1000);
+       createjs.Ticker.setInterval(30);
     }
 
     function update(){
        stage.update();
 
        ball.x +=xSpeed;
+
+       if(ball.x <= 15 || ball.x >= 365){
+         xSpeed =-xSpeed;
+       }
+
        ball.y +=ySpeed;
     }
 }
