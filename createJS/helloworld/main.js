@@ -149,16 +149,20 @@ function Main() {
        ball.x +=xSpeed;
 
        if(ball.x <= 15 || ball.x >= 465){
-         xSpeed =-xSpeed;
+         xSpeed = -xSpeed;
        }
 
+       if(ball.y >= 300){
+          ySpeed = -ySpeed;
+       }
+        /*
        if(ball.y >= paddle.y){
         if(paddle.hitTest(ball.x + 15, ball.y + 15)){
-          ySpeed =-ySpeed;
+          ySpeed = -ySpeed;
         }else{
-          ySpeed =-ySpeed;
+          ySpeed = -ySpeed;
         }
-       }
+       }*/
 
        ball.y +=ySpeed;
     }
