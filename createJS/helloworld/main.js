@@ -13,7 +13,7 @@ var creditsB;
 var credits;
 
 
-var player;
+var paddle;
 var ball;
 var cpu;
 var win;
@@ -102,8 +102,29 @@ function Main() {
       ball.y = -15;
       stage.addChild(ball);
 
+      paddle = new createjs.Bitmap(getAssetsById('paddle'));
+      stage.addChild(padde);
+      paddle.x = 240- 37;
+      paddle.y = 320 - 37;
+
+      paddle.addEventListener('mousedown', onDownHandler);
+
+
       startGame();
 
+    }
+
+    function onDownHandler(evt){
+      stage.addEventListener('mouseup', onUpHandler);
+      stage.addEventListener('mousemove', onMoveHandler);
+    }
+
+    function onMoveHandler(evt){
+      paddle.x = evt.stageX;
+    }
+
+    function onUpHandler(evt){
+      stage.removeEventListener('mousemove', onMoveHandler);
     }
 
     function onFileLoadHandler(evt){
@@ -117,6 +138,10 @@ function Main() {
     function startGame(){
        createjs.Ticker.addEventListener("tick", update);
        createjs.Ticker.setInterval(30);
+
+       if(ball){
+          ball.addEventListener('mousedown', onDown)
+       }
     }
 
     function update(){
@@ -126,10 +151,6 @@ function Main() {
 
        if(ball.x <= 15 || ball.x >= 465){
          xSpeed =-xSpeed;
-       }
-
-       if(ball.y <= 15 || ball.y >= 305){
-         ySpeed =-ySpeed;
        }
 
        ball.y +=ySpeed;
