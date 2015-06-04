@@ -109,17 +109,18 @@ function Main() {
 
       paddle.addEventListener('mousedown', onDownHandler);
 
-
       startGame();
 
     }
 
     function onDownHandler(evt){
+      console.log(0);
       stage.addEventListener('mouseup', onUpHandler);
-      stage.addEventListener('mousemove', onMoveHandler);
+      stage.addEventListener('stagemousemove', onMoveHandler);
     }
 
     function onMoveHandler(evt){
+      console.log('x: ' + evt.stageX);
       paddle.x = evt.stageX;
     }
 
