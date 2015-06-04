@@ -72,8 +72,7 @@ function Main() {
     preloader.on('fileload', onFileLoadHandler, this);
     preloader.loadManifest(manifest);
 
-    createjs.Ticker.addEventListener("tick", handleTick);
-    createjs.Ticker.setInterval(1000);
+
 
 
     function handleTickGame(evt){
@@ -82,6 +81,9 @@ function Main() {
 
     function handleTick(event) {
       console.log('tick');
+      if(stage){
+        stage.update();
+      }
     }
 
     function onProgressHandler(evt){
@@ -93,9 +95,15 @@ function Main() {
       document.getElementById('loader').style.display='none';
 
       bg = new createjs.Bitmap(getAssetsById('bg'));
-
       stage.addChild(bg);
-      stage.update();
+
+      ball = new createjs.Bitmap(getAssetsById('ball'));
+      ball.x = 240-15;
+      ball.y = -15;
+
+
+      startGame();
+
     }
 
     function onFileLoadHandler(evt){
@@ -106,4 +114,15 @@ function Main() {
       return assetsFactory[id];
     }
 
+    function startGame(){
+       createjs.Ticker.addEventListener("tick", update);
+       createjs.Ticker.setInterval(1000);
+    }
+
+    function update(){
+       stage.update();
+
+       ball.x +=xSpeed;
+       ball.y +=ySpeed;
+    }
 }
