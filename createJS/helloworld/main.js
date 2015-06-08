@@ -73,6 +73,7 @@ function Main() {
         {src:"playerScore.mp3", id:"playerScore"},
         {src:"enemyScore.mp3", id:"enemyScore"},
         {src:"hit.mp3", id:"hit"},
+        {src:"lose.mp3", id:"lose"},
         {src:"wall.mp3", id:"wall"}
     ];
 
@@ -88,7 +89,6 @@ function Main() {
     }
 
     function handleTick(event) {
-      console.log('tick');
       if(stage){
         stage.update();
       }
@@ -186,11 +186,10 @@ function Main() {
     }
 
     function endGame(){
-        console.log('end game');
-        //stop timer
         createjs.Tween.get(lose).to({alpha: 1}, 300).call(function(){
           stage.mouseEventEnable = false;
           paddle.cursor ='arrow';
+        //stop timer
           createjs.Ticker.removeEventListener("tick", update);
         });
 
@@ -201,6 +200,7 @@ function Main() {
        stage.update();
 
        ball.x +=xSpeed;
+       ball.y +=ySpeed;
 
        if(ball.x <= 2 || ball.x >= 463){
          xSpeed = -xSpeed;
@@ -213,23 +213,22 @@ function Main() {
        }
 
        else if(ball.y > 30){
-        first = false;
+          first = false;
+          if(ball.y >= paddle.y - 15){
+             if(ball.x >= paddle.x && ball.x <= paddle.x + 72 - 15){
+               ySpeed =-ySpeed;
+               createjs.Sound.play(getAssetsById('hit'));
+             }
+
+             if(ball.y >= 317){
+              //createjs.Sound.play(getAssetsById('lose'));
+              endGame();
+              return;
+             }
+         }
 
        }
 
-       if(ball.y >= paddle.y - 15){
-         if(ball.x >= paddle.x && ball.x <= paddle.x + 72 - 15){
-           ySpeed =-ySpeed;
-           createjs.Sound.play(getAssetsById('hit'));
-         }
-
-         if(ball.y >= 317){
-          createjs.Sound.play(getAssetsById('hit'));
-          endGame();
-         }
-       }
-
-       ball.y +=ySpeed;
     }
 
 
