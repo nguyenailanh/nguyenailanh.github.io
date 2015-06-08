@@ -50,7 +50,7 @@ function Main() {
     stage.addChildAt(shap,0);
     stage.update();
 
-    var = graphicManifest = [
+    var graphicManifest = [
         {src:"bg.png", id:"bg"},
         {src:"main.png", id:"main"},
         {src:"startB.png", id:"startB"},
